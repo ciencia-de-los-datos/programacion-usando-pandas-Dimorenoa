@@ -22,7 +22,9 @@ def pregunta_01():
     40
 
     """
-    return
+    filas = tbl0.shape[0]
+    
+    return filas
 
 
 def pregunta_02():
@@ -33,7 +35,8 @@ def pregunta_02():
     4
 
     """
-    return
+    columnas = tbl0.shape[1]
+    return columnas
 
 
 def pregunta_03():
@@ -50,7 +53,8 @@ def pregunta_03():
     Name: _c1, dtype: int64
 
     """
-    return
+    letras=tbl0['_c1'].value_counts().sort_index()
+    return letras
 
 
 def pregunta_04():
@@ -65,7 +69,8 @@ def pregunta_04():
     E    4.785714
     Name: _c2, dtype: float64
     """
-    return
+    promedio=tbl0.groupby('_c1')['_c2'].mean()
+    return promedio
 
 
 def pregunta_05():
@@ -82,7 +87,8 @@ def pregunta_05():
     E    9
     Name: _c2, dtype: int64
     """
-    return
+    maxi=tbl0.groupby('_c1')['_c2'].max()
+    return maxi
 
 
 def pregunta_06():
@@ -94,7 +100,8 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
-    return
+    valores=([ z.upper() for z in sorted(tbl1['_c4'].unique())])
+    return valores
 
 
 def pregunta_07():
@@ -110,7 +117,8 @@ def pregunta_07():
     E    67
     Name: _c2, dtype: int64
     """
-    return
+    suma=tbl0.groupby('_c1')['_c2'].sum()
+    return suma
 
 
 def pregunta_08():
@@ -128,7 +136,9 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
-    return
+    suma=tbl0.assign(suma=tbl0['_c0'] + tbl0['_c2'])
+    return suma
+
 
 
 def pregunta_09():
@@ -146,7 +156,11 @@ def pregunta_09():
     39   39   E    5  1998-01-26  1998
 
     """
-    return
+    años = ([z.split('-') for z in tbl0['_c3']])
+    año=([x[0] for x in años])
+    columnaño=tbl0.assign(año = año)
+    return columnaño
+
 
 
 def pregunta_10():
