@@ -158,10 +158,10 @@ def pregunta_09():
     """
     años = ([z.split('-') for z in tbl0['_c3']])
     año=([x[0] for x in años])
-    columnaño=tbl0.assign(año = año)
+    columnaño=tbl0.assign(year = año)
     return columnaño
 
-
+print(pregunta_09())
 
 def pregunta_10():
     """
