@@ -161,7 +161,7 @@ def pregunta_09():
     columnaño=tbl0.assign(year = año)
     return columnaño
 
-print(pregunta_09())
+
 
 def pregunta_10():
     """
