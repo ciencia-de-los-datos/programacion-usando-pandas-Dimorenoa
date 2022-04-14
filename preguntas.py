@@ -201,11 +201,12 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    tbl1=tbl1.sort_values('_c4')
-    tabla=tbl1.groupby('_c0')['_c4'].agg(','.join)
-    tabla=tabla.reset_index()
-    tabla['_c4']=tabla['_c4'].apply(lambda x: ','.join((sorted(x.split(':')))))
-    return tabla
+    df=tbl1
+    df=df.sort_values('_c4')
+    df=df.groupby('_c0')['_c4'].apply(lambda x: ','.join(x))
+    df=df.reset_index()
+    df.columns=['_c0','lista']
+    return df
 
 
 def pregunta_12():
@@ -226,8 +227,8 @@ def pregunta_12():
     df=tbl2
     df['_c5b']=df['_c5b'].astype(str)
     df=df.sort_values(['_c0','_c5a','_c5b'])
-    df['lista']=df['_c5a']+':'+df['_c5b']
-    df=df.groupby('_c0')['lista'].apply(lambda x:','.join(x))
+    df['_c5']=df['_c5a']+':'+df['_c5b']
+    df=df.groupby('_c0')['_c5'].apply(lambda x:','.join(x))
     df=df.reset_index()
     return df
 
