@@ -229,7 +229,7 @@ def pregunta_12():
     df=df.groupby('_c0')['lista'].apply(lambda x:','.join(x))
     df=df.reset_index()
     return df
-print(pregunta_12())
+
 
 def pregunta_13():
     """
@@ -250,4 +250,4 @@ def pregunta_13():
     df3=df.merge(df2,on='_c0')
     df_final=df3.groupby('_c1').sum()['_c5b']
     return df_final
-print(pregunta_13())
+
