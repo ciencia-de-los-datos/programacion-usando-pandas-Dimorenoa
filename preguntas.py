@@ -245,9 +245,5 @@ def pregunta_13():
     E    275
     Name: _c5b, dtype: int64
     """
-    df=tbl0
-    df2=tbl2
-    df3=df.merge(df2,on='_c0')
-    df_final=df3.groupby('_c1').sum()['_c5b']
-    return df_final
+    return
 
