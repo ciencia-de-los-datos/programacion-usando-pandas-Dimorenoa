@@ -247,5 +247,10 @@ def pregunta_13():
     E    275
     Name: _c5b, dtype: int64
     """
-    return
+    import pandas as pd
+    df= pd.read_csv('tbl0.tsv',sep='\t')
+    df2= pd.read_csv('tbl2.tsv',sep='\t')
+    df3=df.merge(df2,on='_c0')
+    df_final=df3.groupby('_c1').sum()['_c5b']
+    return df_final
 
