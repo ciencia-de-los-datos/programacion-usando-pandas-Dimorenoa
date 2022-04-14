@@ -201,11 +201,13 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
-    df=tbl1
+    import pandas as pd  
+    df= pd.read_csv('tbl1.tsv',sep='\t')
+
     df=df.sort_values('_c4')
     df=df.groupby('_c0')['_c4'].apply(lambda x: ','.join(x))
     df=df.reset_index()
-    df.columns=['_c0','lista']
+    df.columns=['_c0','_c4']
     return df
 
 
