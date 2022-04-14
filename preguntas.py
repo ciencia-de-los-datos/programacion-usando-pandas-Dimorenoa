@@ -201,6 +201,7 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
+    tbl1=tbl1.sort_values('_c4')
     tabla=tbl1.groupby('_c0')['_c4'].agg(','.join)
     tabla=tabla.reset_index()
     tabla['_c4']=tabla['_c4'].apply(lambda x: ','.join((sorted(x.split(':')))))
